@@ -10,6 +10,22 @@ DROP TABLE IF EXISTS salaries CASCADE;
 DROP TABLE IF EXISTS dept_emp CASCADE;
 
 
+CREATE TABLE "titles" (
+    "title_id" varchar(30)   NOT NULL,
+    "title" varchar(30)   NOT NULL,
+    CONSTRAINT "pk_titles" PRIMARY KEY (
+        "title_id"
+     )
+);
+
+
+CREATE TABLE "departments" (
+    "dept_no" varchar(30)   NOT NULL,
+    "dept_name" varchar(30)   NOT NULL,
+    CONSTRAINT "pk_departments" PRIMARY KEY (
+        "dept_no"
+     )
+);
 
 
 CREATE TABLE "employees" (
@@ -25,27 +41,19 @@ CREATE TABLE "employees" (
      )
 );
 
+CREATE TABLE "dept_emp" (
+    "emp_no" int   NOT NULL,
+    "dept_no" varchar(30)   NOT NULL,
+    CONSTRAINT "pk_dept_emp" PRIMARY KEY (
+        "emp_no","dept_no"
+     )
+);
+
 CREATE TABLE "dept_manager" (
     "dept_no" varchar(30)   NOT NULL,
     "emp_no" int   NOT NULL,
     CONSTRAINT "pk_dept_manager" PRIMARY KEY (
         "dept_no","emp_no"
-     )
-);
-
-CREATE TABLE "departments" (
-    "dept_no" varchar(30)   NOT NULL,
-    "dept_name" varchar(30)   NOT NULL,
-    CONSTRAINT "pk_departments" PRIMARY KEY (
-        "dept_no"
-     )
-);
-
-CREATE TABLE "titles" (
-    "title_id" varchar(30)   NOT NULL,
-    "title" varchar(30)   NOT NULL,
-    CONSTRAINT "pk_titles" PRIMARY KEY (
-        "title_id"
      )
 );
 
@@ -57,13 +65,11 @@ CREATE TABLE "salaries" (
      )
 );
 
-CREATE TABLE "dept_emp" (
-    "emp_no" int   NOT NULL,
-    "dept_no" varchar(30)   NOT NULL,
-    CONSTRAINT "pk_dept_emp" PRIMARY KEY (
-        "emp_no","dept_no"
-     )
-);
+
+
+
+
+
 
 --ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_emp_title_id" FOREIGN KEY("emp_title_id")
 --REFERENCES "titles" ("title_id");
