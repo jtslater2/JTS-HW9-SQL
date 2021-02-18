@@ -62,5 +62,30 @@ INNER JOIN dept_emp AS de ON e.emp_no = de.emp_no
 INNER JOIN departments AS d ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales';
 
-
 SELECT * from "sales_emp"
+
+--DROP VIEW sales_emp;
+
+-- Data Analysis #7 - Sales & Development dept employees
+
+CREATE VIEW "sales_dev_emp" AS
+SELECT e.emp_no, e.first_name, e.last_name, d.dept_name
+FROM employees AS e
+INNER JOIN dept_emp AS de ON e.emp_no = de.emp_no
+INNER JOIN departments AS d ON de.dept_no = d.dept_no
+WHERE d.dept_name = 'Sales'
+OR d.dept_name = 'Development'
+
+SELECT * from "sales_dev_emp"
+
+-- Data Analysis #8 - Frequency of last names
+
+CREATE VIEW "freq_lastname" AS
+SELECT e.last_name, COUNT(e.last_name)
+AS Lastname_count
+FROM employees AS e
+GROUP BY (last_name) ORDER BY Lastname_count DESC;
+
+SELECT * from "freq_lastname"
+
+
