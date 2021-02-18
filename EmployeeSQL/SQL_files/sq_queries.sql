@@ -1,11 +1,15 @@
-Select * from departments
+--Select * from departments
+--Select * from dept_emp
+--Select * from dept_manager
+--Select * from employees
+--Select * from salaries
+--Select * from titles
 
-Select * from dept_emp
+--  Q1
 
-Select * from dept_manager
+CREATE VIEW "employee information" AS
+SELECT employees.emp_no, last_name, first_name, sex, salaries.salary
+FROM employees
+INNER JOIN salaries ON employees.emp_no = salaries.emp_no;
 
-Select * from employees
-
-Select * from salaries
-
-Select * from titles
+SELECT * from "employee information"
