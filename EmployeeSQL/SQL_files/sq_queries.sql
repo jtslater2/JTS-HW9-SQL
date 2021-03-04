@@ -12,7 +12,7 @@ SELECT employees.emp_no, last_name, first_name, sex, salaries.salary
 FROM employees
 INNER JOIN salaries ON employees.emp_no = salaries.emp_no;
 
-SELECT * from "employee_info"
+SELECT * from "employee_info";
 
 -- Data Analysis #2 - Hired in 1986
 
@@ -21,7 +21,7 @@ SELECT employees.first_name, last_name, hire_date
 FROM employees
 WHERE hire_date Between '1986-01-01' AND '1986-12-31'
 
-SELECT * from "hire_1986"
+SELECT * from "hire_1986";
 
 -- Data Analysis #3 - Manager info
 
@@ -31,7 +31,7 @@ FROM departments AS d
 INNER JOIN dept_manager AS dm ON dm.dept_no = d.dept_no
 INNER JOIN employees AS e ON dm.emp_no = e.emp_no;
 
-SELECT * from "mgr_info"
+SELECT * from "mgr_info";
 
 -- Data Analysis #4 - Department by employee
 
@@ -41,7 +41,7 @@ FROM departments AS d
 INNER JOIN dept_manager AS dm ON d.dept_no = dm.dept_no
 INNER JOIN employees AS e ON dm.emp_no = e.emp_no;
 
-SELECT * from "dept_empl"
+SELECT * from "dept_empl";
 
 -- Data Analysis #5 - Finding Hercules
 
@@ -51,7 +51,7 @@ FROM employees
 WHERE first_name = 'Hercules'
 and last_name LIKE 'B%'
 
-SELECT * from "find_herc"
+SELECT * from "find_herc";
 
 -- Data Analysis #6 - Sales dept employees
 
@@ -62,7 +62,7 @@ INNER JOIN dept_emp AS de ON e.emp_no = de.emp_no
 INNER JOIN departments AS d ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales';
 
-SELECT * from "sales_emp"
+SELECT * from "sales_emp";
 
 --DROP VIEW sales_emp;
 
@@ -76,7 +76,7 @@ INNER JOIN departments AS d ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales'
 OR d.dept_name = 'Development'
 
-SELECT * from "sales_dev_emp"
+SELECT * from "sales_dev_emp";
 
 -- Data Analysis #8 - Frequency of last names
 
@@ -86,6 +86,6 @@ AS Lastname_count
 FROM employees AS e
 GROUP BY (last_name) ORDER BY Lastname_count DESC;
 
-SELECT * from "freq_lastname"
+SELECT * from "freq_lastname";
 
 
